@@ -53,7 +53,7 @@ class _AmalState extends State<Amal> with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context,constraints)
     {
-      if(constraints.maxWidth<600)
+      if(MediaQuery.of(context).size.width<=600)
         return MobileHome();
       else
         return WebHome();

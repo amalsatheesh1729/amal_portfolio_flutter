@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:amal_portfolio/MobileScreens/Mobile_Home.dart';
 import 'package:amal_portfolio/MobileScreens/Mobile_Proffesional.dart';
 import 'package:amal_portfolio/WebScreens/Web_Home.dart';
@@ -12,9 +14,79 @@ import 'WebScreens/Personal.dart';
 import 'WebScreens/Proffessional.dart';
 import 'WebScreens/contact.dart';
 
-void launchUrl(String _url) async {
-  if (!await launch(_url)) throw 'Could not launch $_url';
+Future<void> launchUrl1(Uri _url) async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
+  }
 }
+
+List<Map<String,String>> projects=[
+  {
+    'name' :'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade1.png?alt=media&token=3eaa95ef-7d62-45ac-b98e-6a5b6049e184',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade2.png?alt=media&token=457b56ad-0250-436a-82db-6e19782358b8',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade3.png?alt=media&token=e7d43233-3979-4ca4-892c-8f4e6d84901b',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade4.png?alt=media&token=6c16b2ae-af6c-435f-8c1f-f951a846cf5f',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade5.png?alt=media&token=97fd1057-1f45-46c8-92c5-412b8ca30dab',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'An e-commerce store for home made products',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fhomemade6.png?alt=media&token=3a60f1ef-b6ad-4cc6-81f2-5779f8df6d0e',
+    'url':'https://divine-bloom-383508.web.app'
+  },
+  {
+    'name' : 'A full stack instagram clone',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Finstagram1.png?alt=media&token=d33c7ebb-5f95-4452-8496-1c886051d21c',
+    'url':'https://instagram-clone-43bb4.web.app'
+  },
+  {
+    'name' : 'A full stack instagram clone',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Finstagram2.png?alt=media&token=f91226db-1d10-47e3-a5cb-33bf64a9e4a9',
+    'url':'https://instagram-clone-43bb4.web.app'
+  },
+  {
+    'name' : 'A full stack instagram clone',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Finstagram3.png?alt=media&token=17de2c63-ee7b-4ce5-9bcb-832fdce203a3',
+    'url':'https://instagram-clone-43bb4.web.app'
+  },
+  {
+    'name' : 'A full stack instagram clone',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Finstagram4.png?alt=media&token=5d90a5af-a52e-41f6-b260-dae8998bc4c4',
+    'url':'https://instagram-clone-43bb4.web.app'
+  },
+  {
+    'name' : 'A full stack instagram clone',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Finstagram5.png?alt=media&token=11cb29e7-1ed4-4f13-a241-e8fb3629fefb',
+    'url':'https://instagram-clone-43bb4.web.app'
+  },
+  {
+    'name' : 'Portfolio App',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fportfolio1.png?alt=media&token=c840fbe4-20bd-45ec-bc22-c92e0a6ac9f7',
+    'url':'https://www.amalsatheesh.com'
+  },
+  {
+    'name' : 'Portfolio App',
+    'image':'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2Fportfolio2.png?alt=media&token=176f1831-67ec-461e-9647-7e8c2fccbdbf',
+    'url':'https://www.amalsatheesh.com'
+  },
+];
 
 Drawer drawer(BuildContext context) {
   return Drawer(
@@ -37,11 +109,8 @@ Drawer drawer(BuildContext context) {
           label: Text('Personal')),
       TextButton.icon(
           onPressed: () async {
-            String url = await FirebaseStorage.instance
-                .ref('downloads')
-                .child('CV_Amal_M.pdf')
-                .getDownloadURL();
-            if (!await launch(url)) throw 'Could not launch URL';
+            String url = 'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2FCV_AMAL_M_LATEST.pdf?alt=media&token=d1c7afc5-0be0-4ce4-b3d0-e88e2dd8a1b7';
+            launchUrl1(Uri.parse(url));
           },
           icon: Icon(Icons.file_download),
           label: Text('Resume')),
@@ -73,20 +142,20 @@ List<IconButton> getsocialicons() {
         color: Colors.blue,
       ),
       onPressed: () {
-        launchUrl('https://www.facebook.com/AmalBeCool/');
+        launchUrl1(Uri.parse('https://www.facebook.com/AmalBeCool/'));
       },
     ),
     IconButton(
         icon: Icon(
-          Icons.whatsapp,
+          FontAwesomeIcons.whatsapp,
           color: Colors.green,
         ),
         onPressed: () {
-          launchUrl("tel:+91-9497873783");
+          launchUrl1(Uri.parse("tel:+91-9497873783"));
         }),
     IconButton(
         onPressed: () {
-          launchUrl("https://github.com/amalsatheesh1729");
+          launchUrl1(Uri.parse("https://github.com/amalsatheesh1729"));
         },
         icon: Icon(
           FontAwesomeIcons.github,
@@ -95,13 +164,13 @@ List<IconButton> getsocialicons() {
     IconButton(
       icon: Icon(FontAwesomeIcons.linkedin, color: Colors.blue),
       onPressed: () {
-        launchUrl('https://www.linkedin.com/in/amal-m-481a7716a/');
+        launchUrl1(Uri.parse(('https://www.linkedin.com/in/amal-m-481a7716a/')));
       },
     ),
     IconButton(
       icon: Icon(FontAwesomeIcons.instagram, color: Colors.purple),
       onPressed: () {
-        launchUrl('https://www.instagram.com/amal_satheesh_96/');
+        launchUrl1(Uri.parse(('https://www.instagram.com/amal_satheesh_96/')));
       },
     )
   ];
@@ -139,11 +208,8 @@ AppBar getAppBar(BuildContext context) {
                   Theme.of(context).appBarTheme.backgroundColor))),
       ElevatedButton(
           onPressed: () async {
-            String url = await FirebaseStorage.instance
-                .ref('downloads')
-                .child('CV_Amal_M.pdf')
-                .getDownloadURL();
-            if (!await launch(url)) throw 'Could not launch URL';
+            String url = 'https://firebasestorage.googleapis.com/v0/b/amal-portfolio-b1383.appspot.com/o/downloads%2FCV_AMAL_M_LATEST.pdf?alt=media&token=d1c7afc5-0be0-4ce4-b3d0-e88e2dd8a1b7';
+            launchUrl1(Uri.parse(url));
           },
           child: Text(
             'Resume',

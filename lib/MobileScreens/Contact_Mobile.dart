@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_awesome_buttons/flutter_awesome_buttons.dart';
+
 
 import '../DRY.dart';
 import '../Firebase/firebase.dart';
@@ -114,7 +114,7 @@ class ContactMobile extends StatelessWidget {
                             icon: Icons.email_rounded,
                             title: "  amalthewinner123@gmail.com",
                             onPressed: () {
-                              launchUrl("mailto:amalthewinner123@gmail.com");
+                              launchUrl1(Uri.parse("mailto:amalthewinner123@gmail.com"));
                             },
                           ),
                           Divider(thickness: 0.5),
@@ -122,7 +122,7 @@ class ContactMobile extends StatelessWidget {
                             icon: Icons.alternate_email_rounded,
                             title: "  amalsatheesh1996@outlook.com",
                             onPressed: () {
-                              launchUrl("mailto:amalsatheesh1996@outlook.com");
+                              launchUrl1(Uri.parse("mailto:amalsatheesh1996@outlook.com"));
                             },
                           ),
                           Divider(thickness: 1),
@@ -130,7 +130,7 @@ class ContactMobile extends StatelessWidget {
                             icon: FontAwesomeIcons.whatsapp,
                             title: "  +919497873783",
                             onPressed: () {
-                              launchUrl("tel:+91-9497873783");
+                              launchUrl1(Uri.parse("tel:+91-9497873783"));
                             },
                           ),
                           Divider(thickness: 1),
@@ -138,7 +138,7 @@ class ContactMobile extends StatelessWidget {
                               icon: Icons.phone,
                               title: "  +917012850193",
                               onPressed: () {
-                                launchUrl("tel:+91-7012850193");
+                                launchUrl1(Uri.parse("tel:+91-7012850193"));
                               }
                           ),
                         ],
@@ -159,5 +159,7 @@ class ContactMobile extends StatelessWidget {
       return true;
     }
   }
+
+
 
 }

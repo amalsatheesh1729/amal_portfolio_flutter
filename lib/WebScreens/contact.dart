@@ -47,28 +47,28 @@ class Contact extends StatelessWidget {
                             icon: Icons.email_rounded,
                             title: "  amalthewinner123@gmail.com",
                             onPressed: () {
-                              launchUrl("mailto:amalthewinner123@gmail.com");
+                              launchUrl1(Uri.parse(("mailto:amalthewinner123@gmail.com")));
                             },
                           ),
                           ButttonWithIcon(
                             icon: Icons.alternate_email_rounded,
                             title: "  amalsatheesh1996@gmail.com",
                             onPressed: () {
-                              launchUrl("mailto:amalsatheesh1996@outlook.com");
+                              launchUrl1(Uri.parse(("mailto:amalsatheesh1996@outlook.com")));
                             },
                           ),
                           ButttonWithIcon(
                             icon: FontAwesomeIcons.whatsapp,
                             title: "  +919497873783",
                             onPressed: () {
-                              launchUrl("tel:+91-9497873783");
+                              launchUrl1(Uri.parse(("tel:+91-9497873783")));
                             },
                           ),
                           ButttonWithIcon(
                             icon: Icons.phone,
                             title: "  +917012850193",
                             onPressed: () {
-                              launchUrl("tel:+91-7012850193");
+                              launchUrl1(Uri.parse(("tel:+91-7012850193")));
                             },
                           ),
                         ],
